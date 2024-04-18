@@ -3372,7 +3372,8 @@ SMRMon /: MakeBoxes[obj_SMRMon, form : StandardForm] :=
           If[KeyExistsQ[ctx, "M"],
             BoxForm`SummaryItem@{"Tags: ", Short @ ColumnNames @ ctx["M"]},
             Nothing
-          ]
+          ],
+          BoxForm`SummaryItem@{"Value: ", Short @ SMRMonBind[obj, SMRMonTakeValue]}
         },
         form]
     ];
