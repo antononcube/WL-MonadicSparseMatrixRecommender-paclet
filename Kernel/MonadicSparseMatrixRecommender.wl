@@ -39,6 +39,8 @@ SMRMonFilterByProfile::usage = "SMRMonFilterByProfile[ prof : ( { _String ..} | 
 
 SMRMonFilterMatrix::usage = "SMRMonFilterMatrix[ prof : ( { _String ..} | Association[ (_Integer -> _?NumberQ) .. ] | Association[ (_String -> _?NumberQ) .. ] ) ] applies a profile filter to the rows of the recommendation matrix.";
 
+SMRMonFindAnomalies::usage = "SMRMonFindAnomalies[ opts:OptionsPattern[] ] finds rows of the recommendation matrix that are anomalies.";
+
 SMRMonFromProfileVector::usage = "Makes a profile association from a profile vector argument.";
 
 SMRMonGetMatrixProperty::usage = "Gets a recommender matrix property.";
@@ -124,6 +126,7 @@ PacletInstall["AntonAntonov/SSparseMatrix", AllowVersionUpdate -> False];
 Begin["`Private`"];
 
 Needs["AntonAntonov`MonadicSparseMatrixRecommender`SMRMon`"];
+Needs["AntonAntonov`MonadicSparseMatrixRecommender`AnomaliesFinder`"];
 
 
 End[]; (*`Private`*)
