@@ -3354,7 +3354,7 @@ SMRMon /: MakeBoxes[obj_SMRMon, form : StandardForm] :=
         If[KeyExistsQ[ctx, "M"],
           {
             BoxForm`SummaryItem@{"Dimensions: ", Dimensions[SMRMonBind[obj, SMRMonTakeMatrix]]},
-            BoxForm`SummaryItem@{"Fill in: ", N[Length[SparseArray[[ctx["M"]]]["NonzeroValues"]] / Apply[Times, Dimensions[ctx["M"]]]]},
+            BoxForm`SummaryItem@{"Fill in: ", N[Length[SparseArray[ctx["M"]]["NonzeroValues"]] / Apply[Times, Dimensions[ctx["M"]]]]},
             BoxForm`SummaryItem@{"Number of tag types: ", Length @ ctx["matrices"]}
           },
           (*ELSE*)
