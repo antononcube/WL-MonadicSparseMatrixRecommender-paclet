@@ -16,7 +16,7 @@
 (**************************************************************)
 
 
-BeginPackage["AntonAntonov`SparseMatrixRecommender`AnomaliesFinder`"];
+BeginPackage["AntonAntonov`MonadicSparseMatrixRecommender`AnomaliesFinder`"];
 
 Begin["`Private`"];
 
@@ -27,6 +27,15 @@ Needs["AntonAntonov`SSparseMatrix`"];
 (**************************************************************)
 (* Find anomalies by nearest neighbors                        *)
 (**************************************************************)
+
+aOutlierIdentifierDict = <|
+  "SPLUSQuartile" -> SPLUSQuartileIdentifierParameters,
+  "SPLUSQuartileIdentifier" -> SPLUSQuartileIdentifierParameters,
+  "Hampel" -> HampelIdentifierParameters,
+  "HampelIdentifier" -> HampelIdentifierParameters,
+  "Quartile" -> QuartileIdentifierParameters,
+  "QuartileIdentifier" -> QuartileIdentifierParameters
+|>;
 
 Clear[SMRMonFindAnomalies];
 
@@ -55,6 +64,7 @@ SMRMonFindAnomalies[ arg_, opts : OptionsPattern[] ][xs_, context_Association] :
 
       nns = OptionValue[ SMRMonFindAnomalies, "NumberOfNearestNeighbors" ];
       outThresholdsFunc = OptionValue[ SMRMonFindAnomalies, "ThresholdsIdentifier" ];
+      outThresholdsFunc = outThresholdsFunc /. aOutlierIdentifierDict;
       aggrFunc = OptionValue[ SMRMonFindAnomalies, "AggregationFunction" ];
       prop = OptionValue[ SMRMonFindAnomalies, "Property" ];
 
@@ -189,7 +199,7 @@ SMRMonFindAnomalies[ arg_, opts : OptionsPattern[] ][xs_, context_Association] :
 SMRMonFindAnomalies[___][xs_, context_Association] :=
     Block[{},
       Echo[
-        "The expected signature is SMRMonFindAnomalies[ opts:OptionsPattern[] ].",
+        "The expected signature is SMRMonFindAnomalies[prop_, opts:OptionsPattern[] ].",
         "SMRMonFindAnomalies:"
       ];
       $SMRMonFailure
