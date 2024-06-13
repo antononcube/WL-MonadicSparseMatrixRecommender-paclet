@@ -61,8 +61,6 @@ SMRMonProfile::usage = "Computes profile based on history.";
 
 SMRMonProveByHistory::usage = "Computes proofs for recommendations using consumption history.";
 
-SMRMonProveByHistory::usage = "History proofs for a recommended item and scored history items.";
-
 SMRMonProveByMetadata::usage = "Metadata proofs for a recommended item and a profile. (Tags from item's profile that are found in the given profile.)";
 
 SMRMonProveByProfile::usage = "Computes proofs for recommendations using consumption profile.";
