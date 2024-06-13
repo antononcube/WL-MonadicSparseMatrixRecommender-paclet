@@ -7,7 +7,7 @@ PacletObject[
     "Creator" -> "Anton Antonov",
     "License" -> "MIT",
     "PublisherID" -> "AntonAntonov",
-    "Version" -> "0.5.0",
+    "Version" -> "1.0.1",
     "WolframVersion" -> "12.1+",
     "PrimaryContext" -> "AntonAntonov`MonadicSparseMatrixRecommender`",
     "DocumentationURL" -> "https://resources.wolframcloud.com/PacletRepository/resources",
