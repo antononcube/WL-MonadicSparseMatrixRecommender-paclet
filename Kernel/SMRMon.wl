@@ -1549,7 +1549,7 @@ SMRMonRecommendByProfile[profileInds : {_Integer..}, profileScores : {_?NumberQ.
       SMRMonRecommendByProfile[vec, nRes, opts][xs, context]
     ] /; Length[profileInds] == Length[profileScores];
 
-SMRMonRecommendByProfile[tagsArg : _?StringQ, nRes_ : 12, opts : OptionsPattern[]][xs_, context_Association] :=
+SMRMonRecommendByProfile[tagsArg : _?StringQ, nRes : (_Integer | All) : 12, opts : OptionsPattern[]][xs_, context_Association] :=
     SMRMonRecommendByProfile[{tagsArg}, nRes, opts][xs, context];
 
 SMRMonRecommendByProfile[tagsArg : (_?AssociationQ | _List), opts : OptionsPattern[]][xs_, context_Association] :=
